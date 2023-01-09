@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QTimer>
+#include "mouseacts.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -24,10 +25,13 @@ private slots:
 
     void onTimeout();
 
+    void on_btnRandoHelp_clicked();
+
 private:
     int getTime();
-
-    size_t cnt;
+    size_t cnt = 0;
+    size_t total = 0;
+    MouseActs* mouse;
     QTimer* timer;
     Ui::Widget *ui;
 };

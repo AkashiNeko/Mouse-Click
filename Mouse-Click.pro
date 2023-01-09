@@ -10,23 +10,27 @@ CONFIG += c++17
 
 SOURCES += \
     src/main.cpp \
+    src/mouseacts.cpp \
     src/widget.cpp
 
 HEADERS += \
+    src/mouseacts.h \
     src/widget.h
 
 FORMS += \
     widget.ui
 
+VERSION = 1.0.0
+
 QMAKE_TARGET_COMPANY = "qwq"
 
-QMAKE_TARGET_PRODUCT = "Mouse Click Demo"
+QMAKE_TARGET_PRODUCT = "Mouse Click"
 
 QMAKE_TARGET_DESCRIPTION = "qwq"
 
 QMAKE_TARGET_COPYRIGHT = "Copyright 2023-2027 AkashiNeko. All rights reserved."
 
-# RC_ICONS = icon/icon.ico
+RC_ICONS = icon/icon.ico
 
 RC_LANG = 0x0004
 
