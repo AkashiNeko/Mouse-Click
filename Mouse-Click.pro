@@ -20,7 +20,7 @@ HEADERS += \
 FORMS += \
     widget.ui
 
-VERSION = 1.0.0
+VERSION = 1.1.0
 
 QMAKE_TARGET_COMPANY = "qwq"
 
