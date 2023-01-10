@@ -2,4 +2,4 @@
 
 使用Qt Creator开发，Qt版本6.4.1。
 
-![](/screenshot/screenshot.png)
+![v1.1.0](/screenshot/screenshot.png)
