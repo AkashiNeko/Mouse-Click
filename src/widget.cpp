@@ -11,6 +11,7 @@ Widget::Widget(QWidget *parent) :QWidget(parent), ui(new Ui::Widget) {
     ui->setupUi(this);
     ui->btnStop->setDisabled(true);
     ui->spnRandom->setDisabled(true);
+    ui->cobUnit2->setDisabled(true);
     ui->labGithub->setOpenExternalLinks(true);
     ui->labGithub->setText("<a style='color:blue;' href=\"https://github.com/AkashiNeko/Mouse-Click\">GitHub");
     ui->labNextTime->setStyleSheet("QLabel{color:red;}");
@@ -29,6 +30,7 @@ Widget::~Widget() {
 
 void Widget::on_chkRandom_stateChanged(int check) {
     ui->spnRandom->setDisabled(!check);
+    ui->cobUnit2->setDisabled(!check);
 }
 
 void Widget::on_btnStart_clicked() {
@@ -63,7 +65,7 @@ void Widget::onTimeout() {
     }
     else {
         cnt = getTime();
-        mouse->clickCurPos();
+        mouse->clickCurPos(ui->cobClickStyle->currentIndex());
         ui->labNextTime->setText("已点击屏幕 (" + QString::number(mouse->pos.x) + ", " + QString::number(mouse->pos.y) + ")");
         ui->labCountNumber->setText(QString::number(++total) + " 次");
     }
@@ -71,10 +73,16 @@ void Widget::onTimeout() {
 
 int Widget::getTime() {
     int randTime = 0;
-    if (ui->chkRandom->isChecked() && ui->spnRandom->value()) {
-        randTime = rand() % (ui->spnRandom->value() + 1);
+    int interVal = ui->spnInterval->value();
+    int random = ui->spnRandom->value();
+    if (ui->cobUnit1->currentIndex() == CobIndex::MINUTE)
+        interVal *= 60;
+    if (ui->cobUnit2->currentIndex() == CobIndex::MINUTE)
+        random *= 60;
+    if (ui->chkRandom->isChecked() && random) {
+        randTime = rand() % (random + 1);
     }
-    return ui->spnInterval->value() + randTime - 1;
+    return interVal + randTime - 1;
 }
 
 void Widget::on_btnRandoHelp_clicked() {
@@ -84,5 +92,31 @@ void Widget::on_btnRandoHelp_clicked() {
         "例：若点击间隔设为20秒，随机时间设为5秒，\n" \
         "则实际点击间隔为20~25秒之间。"
     ));
+}
+
+void Widget::on_cobUnit1_currentIndexChanged(int index) {
+    int cur = ui->spnInterval->value();
+    if (index == CobIndex::MINUTE) {
+        if (cur < 60)
+            ui->spnInterval->setValue(1);
+        else
+            ui->spnInterval->setValue(cur / 60);
+    }
+    else {
+        ui->spnInterval->setValue(cur * 60);
+    }
+}
+
+void Widget::on_cobUnit2_currentIndexChanged(int index) {
+    int cur = ui->spnRandom->value();
+    if (index == CobIndex::MINUTE) {
+        if (cur < 60)
+            ui->spnRandom->setValue(1);
+        else
+            ui->spnRandom->setValue(cur / 60);
+    }
+    else {
+        ui->spnRandom->setValue(cur * 60);
+    }
 }
 

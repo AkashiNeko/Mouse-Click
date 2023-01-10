@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>317</width>
-    <height>233</height>
+    <width>322</width>
+    <height>276</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>1000</width>
-    <height>233</height>
+    <height>276</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -103,6 +103,27 @@
      </item>
      <item>
       <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QSpinBox" name="spnRandom">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="maximum">
+          <number>300</number>
+         </property>
+         <property name="value">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
        <item row="0" column="0">
         <widget class="QSpinBox" name="spnInterval">
          <property name="minimumSize">
@@ -120,24 +141,18 @@
           <number>1</number>
          </property>
          <property name="maximum">
-          <number>36000</number>
+          <number>600</number>
          </property>
          <property name="value">
-          <number>180</number>
+          <number>3</number>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLabel" name="labInterval_2">
-         <property name="minimumSize">
-          <size>
-           <width>15</width>
-           <height>0</height>
-          </size>
-         </property>
+        <widget class="QComboBox" name="cobUnit1">
          <property name="maximumSize">
           <size>
-           <width>25</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
@@ -146,40 +161,23 @@
            <pointsize>12</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>秒</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QSpinBox" name="spnRandom">
-         <property name="minimumSize">
-          <size>
-           <width>120</width>
-           <height>30</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-          </font>
-         </property>
-         <property name="maximum">
-          <number>7200</number>
-         </property>
+         <item>
+          <property name="text">
+           <string>分钟</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>秒</string>
+          </property>
+         </item>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLabel" name="labInterval_3">
-         <property name="minimumSize">
-          <size>
-           <width>15</width>
-           <height>0</height>
-          </size>
-         </property>
+        <widget class="QComboBox" name="cobUnit2">
          <property name="maximumSize">
           <size>
-           <width>25</width>
+           <width>60</width>
            <height>16777215</height>
           </size>
          </property>
@@ -188,9 +186,16 @@
            <pointsize>12</pointsize>
           </font>
          </property>
-         <property name="text">
-          <string>秒</string>
-         </property>
+         <item>
+          <property name="text">
+           <string>分钟</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>秒</string>
+          </property>
+         </item>
         </widget>
        </item>
       </layout>
@@ -352,6 +357,63 @@
         </size>
        </property>
       </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
+     <item>
+      <widget class="QLabel" name="labClickStyle">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>25</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>点击方式: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cobClickStyle">
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <item>
+        <property name="text">
+         <string>左键单击</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>左键双击</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>右键单击</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>右键双击</string>
+        </property>
+       </item>
+      </widget>
      </item>
     </layout>
    </item>

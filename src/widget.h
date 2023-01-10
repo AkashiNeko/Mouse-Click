@@ -9,6 +9,10 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+namespace CobIndex {
+    enum TimeStyle { MINUTE, SECOND };
+}
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -26,6 +30,10 @@ private slots:
     void onTimeout();
 
     void on_btnRandoHelp_clicked();
+
+    void on_cobUnit1_currentIndexChanged(int index);
+
+    void on_cobUnit2_currentIndexChanged(int index);
 
 private:
     int getTime();
